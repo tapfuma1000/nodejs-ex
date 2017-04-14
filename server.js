@@ -8,6 +8,7 @@ var express = require('express'),
 Object.assign=require('object-assign')
 
 app.engine('html', require('ejs').renderFile);
+//app.set('views',path.join(__dirname, 'views'));
 app.use(morgan('combined'))
 
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
@@ -72,7 +73,8 @@ app.get('/', function (req, res) {
       res.render('index.html', { pageCountMessage : count, dbInfo: dbDetails });
     });
   } else {
-    res.render('index.html', { pageCountMessage : null});
+   res.render('index.html', { pageCountMessage : null});//Chnaged this line###
+  //  res.send('ndeip banqo');
   }
 });
 
@@ -89,6 +91,16 @@ app.get('/pagecount', function (req, res) {
   } else {
     res.send('{ pageCount: -1 }');
   }
+});
+
+app.get('/secondpage', function(req,res){
+    
+    res.render('secondpage.html');
+});
+
+app.get('/thirdpage', function(req,res){
+    
+    res.render('thirdpage.html');
 });
 
 // error handling
