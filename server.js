@@ -93,14 +93,14 @@ app.get('/pagecount', function (req, res) {
   }
 });
 
-app.get('/secondpage', function(req,res){
+app.get('/page2', function(req,res){
     
-    res.render('secondpage.html');
+    res.render('page2.html');
 });
 
-app.get('/thirdpage', function(req,res){
+app.get('/page3', function(req,res){
     
-    res.render('thirdpage.html');
+    res.render('page3.html');
 });
 
 // error handling
